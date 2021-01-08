@@ -1,0 +1,57 @@
+ClrDraw
+
+"Bounding Box Edge Width
+1→E
+
+"Max Rotation Steps
+9→T
+
+"RotationStep
+1→O
+
+"Rotation
+O*(90/(T+1))→S
+
+"Y
+For(K,­31,31)
+"X
+For(J,­47,47)
+
+"ViewDir
+0→X
+0→Y
+0→Z
+
+"Depth
+0→D
+"Distance
+30→I
+
+While D<60 and I>0.05
+Pxl-On(K+31,J+47)
+
+
+√((J)^2+(K)^2+(100)^2)→R
+J/R→X
+K/R→Y
+100/R→Z
+
+"Sphere:
+"√(((X*D)+J)^2+((Y*D)+K)^2+((Z*D)+3)^2)-20→I
+"Cube:
+"√((max(abs((X*D)+J)-20,0))^2+(max(abs((Y*D)+K)-20,0))^2+(max(abs((Z*D)+3)-20,0))^2)→I
+"Bounding Box:
+"min(min(√((max(abs((X*D)+J)-20,0))^2+(max(abs(abs((Y*D)+K)-20+E)-E,0))^2+(max(abs(abs((Z*D)-20)-20+E)-E,0)^2)),√((max(abs(abs((X*D)+J)-20+E)-E,0))^2+(max(abs((Y*D)+K)-20,0))^2+(max(abs(abs((Z*D)-20)-20+E)-E,0)^2))),√((max(abs(abs((X*D)+J)-20+E)-E,0))^2+(max(abs(abs((Y*D)+K)-20+E)-E,0))^2+(max(abs((Z*D)-20)-20,0))^2))→I
+"Bounding Box With Rotation:
+min(min(√((max(((abs(((X*D)+J)*cos(S)+((Z*D)-30)*sin(S))-20)),0))^2+(max(abs(abs((Y*D)+K)-20+E)-E,0))^2+(max(abs((abs(­1*((X*D)+J)*sin(S)+((Z*D)-30)*cos(S))-20)+E)-E,0)^2)),√((max(abs(((abs(((X*D)+J)*cos(S)+((Z*D)-30)*sin(S))-20))+E)-E,0))^2+(max(abs((Y*D)+K)-20,0))^2+(max(abs((abs(­1*((X*D)+J)*sin(S)+((Z*D)-30)*cos(S))-20)+E)-E,0)^2))),√((max(abs(((abs(((X*D)+J)*cos(S)+((Z*D)-30)*sin(S))-20))+E)-E,0))^2+(max(abs(abs((Y*D)+K)-20+E)-E,0))^2+(max((abs(­1*((X*D)+J)*sin(S)+((Z*D)-30)*cos(S))-20),0))^2))→I
+
+I+D→D
+End
+
+If I>0.1
+Then
+Pxl-Off(K+31,J+47)
+End
+
+End
+End
