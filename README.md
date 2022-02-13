@@ -1,4 +1,6 @@
 # Ti-Raymarcher
+![](https://github.com/Squaresweets/Ti-Raymarcher/blob/main/Final%20Render.gif)
+
 This is a raymarcher that just creates a render of a spinning cube on a TI calculator.
 
 All tests have been done on a TI-84 plus silver edition
